@@ -94,6 +94,8 @@ if hasattr(config, 'gTTS_Out') and not hasattr(config, 'TTS_Out'):
     print('[warn] gTTS_Out is already deprecated, please use TTS_Out instead.')
     config.TTS_Out = config.gTTS_Out
 
+Privileged_Users = [x.strip() for x in config.Privileged_Users]
+Privileged_Users = [str.lower() for str in Privileged_Users]
 
 # 無視言語リストの準備 ##################
 Ignore_Lang = [x.strip() for x in config.Ignore_Lang]
@@ -384,7 +386,9 @@ class Bot(commands.Bot):
         else:
             # 翻訳先が (:)で指定されてなくて、
             # なおかつ 無視対象言語だったら全部無視して終了↑ ---------
-            if lang_detect in Ignore_Lang:
+            if user in Privileged_Users:
+                pass
+            elif lang_detect in Ignore_Lang:
                 return
 
         if config.Debug: print(f"lang_dest:{lang_dest} in_text:{in_text}")
