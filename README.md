@@ -1,3 +1,59 @@
+# Welcome to my fork
+
+This is my fork with an added tiny feature.
+
+Now you can have **Privileged_Users** in config.py
+
+The translator will now translate text for **Privileged_Users** even if the text message is written in a language listed in **Ignore_Lang** config.py
+
+This is very useful for the channel owner because it blends 2 useful features solving a communication problem between channel owner and foreign users.
+
+1. The bot translator ignores your native language. So it doesn't spam the chat with useless translations.
+2. The channel owner can now communicate freely in his own language and it will be translated to **lang_HomeToOther**, usually being English; while the translator doesn't spam the channel.
+
+# Containerfile
+
+Starting a twitchTransFreeNext Podman (or Docker) container is easy and simple.
+
+You should save this text in a Containerfile and replace some sed config data where the placeholders are.
+
+```
+FROM python:3.11.10-alpine
+RUN apk add build-base python3-dev py3-pip git
+RUN pip install async_google_trans_new==1.4.5 gTTS==2.2.4 playsound==1.2.2 deepl-translate==1.2.0 twitchio==2.3.0 emoji==2.2.0
+
+#uncomment this if you want to use sayonari's translator v2.7.4 instead of my fork
+#RUN wget https://github.com/sayonari/twitchTransFreeNext/archive/refs/tags/v2.7.4.zip
+#RUN unzip v2.7.4.zip
+#WORKDIR twitchTransFreeNext-2.7.4
+
+#comment this part if you want to use sayonari's latest code
+RUN git clone https://github.com/comandanteciruela/twitchTransFreeNext
+WORKDIR twitchTransFreeNext
+
+RUN sed -i 's/^Twitch_Channel.*/Twitch_Channel = "your_twitch_channel_name"/' config.py
+RUN sed -i 's/^Trans_Username.*/Trans_Username = "your_translator_bot_name"/' config.py
+RUN sed -i 's/^Trans_OAUTH.*/Trans_OAUTH = "this_is_bot_oauth_get_it_in_twitchtokengenerator_dot_com"/' config.py
+RUN sed -i 's/^lang_TransToHome.*/lang_TransToHome = "this_is_your_own_language_es_en_or_jp_or_whatever"/' config.py
+RUN sed -i 's/^Ignore_Lang.*/Ignore_Lang = ["this_is_also_your_own_language_es_en_or_jpg_or_whatever"]/' config.py
+
+#new config setting for my fork
+RUN sed -i 's/^Privileged_Users.*/Privileged_Users = ["your_twitch_channel_name"]/' config.py
+
+CMD python twitchTransFN.py
+```
+
+### Build the container image
+
+`$ podman build -t translator_image -f Containerfile`
+
+### Run a container based in the containar image you just built
+
+`$ podman run --rm -d translator_image`
+
+---
+
+
 # twitchTransFreeNext
 Next Generation of twitchTransFree!!!!
 
