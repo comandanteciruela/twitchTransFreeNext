@@ -13,7 +13,7 @@ This is very useful for the channel owner because it blends 2 useful features so
 
 # Containerfile
 
-Starting a twitchTransFreeNext Podman (or Docker) container is easy and simple.
+Starting a Podman (or Docker) container is easy and simple.
 
 You should save this text in a Containerfile and replace some sed config data where the placeholders are.
 
@@ -47,7 +47,7 @@ CMD python twitchTransFN.py
 
 `$ podman build -t translator_image -f Containerfile`
 
-### Run a container based in the containar image you just built
+### Run a container based in the container image you just built
 
 `$ podman run --rm -d translator_image`
 
