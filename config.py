@@ -22,6 +22,8 @@ Ignore_Line             = ['http', 'BikuBikuTest', '888', '８８８']
 Ignore_WWW              = ['w', 'ｗ', 'W', 'Ｗ', 'ww', 'ｗｗ', 'WW', 'ＷＷ', 'www', 'ｗｗｗ', 'WWW', 'ＷＷＷ', '草']
 Delete_Words            = ['saatanNooBow', 'BikuBikuTest']
 
+Privileged_Users        = ['your_twitch_channel_name', 'johnson_robert_johnson']
+
 # Any emvironment, set it to `True`, then text will be read by TTS voice!
 # TTS_In:User Input Text, TTS_Out:Bot Output Text
 TTS_In                  = True
