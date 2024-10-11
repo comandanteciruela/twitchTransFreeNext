@@ -1,6 +1,6 @@
-# Welcome to my fork
+# Welcome
 
-This is my fork with an added tiny feature.
+This is my fork for the [twitchTransFreeNext](https://github.com/sayonari/twitchTransFreeNext) translator made by sayonari-san with an added tiny feature by myself.
 
 Now you can have **Privileged_Users** in config.py
 
@@ -11,7 +11,7 @@ This is very useful for the channel owner because it blends 2 useful features so
 1. The bot translator ignores your native language. So it doesn't spam the chat with useless translations.
 2. The channel owner can now communicate freely in his own language and it will be translated to **lang_HomeToOther**, usually being English; while the translator doesn't spam the channel.
 
-# Containerfile
+## Run it with Podman using a Containerfile
 
 Starting a Podman (or Docker) container is easy and simple.
 
@@ -57,6 +57,7 @@ Many thanks to sayonari-san for programming the translator.
 
 ---
 
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 # twitchTransFreeNext
 Next Generation of twitchTransFree!!!!
