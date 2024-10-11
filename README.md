@@ -51,6 +51,10 @@ CMD python twitchTransFN.py
 
 `$ podman run --rm -d translator_image`
 
+I didn't spend too much time messing around with the container to make TTS (text-to-speech) work, so I disabled it via config.py. If anyone knows how to do it, please contact me.
+
+Many thanks to sayonari-san for programming the translator.
+
 ---
 
 
