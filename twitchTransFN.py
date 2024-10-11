@@ -386,9 +386,7 @@ class Bot(commands.Bot):
         else:
             # 翻訳先が (:)で指定されてなくて、
             # なおかつ 無視対象言語だったら全部無視して終了↑ ---------
-            if user in Privileged_Users:
-                pass
-            elif lang_detect in Ignore_Lang:
+            if lang_detect in Ignore_Lang and user not in Privileged_Users:
                 return
 
         if config.Debug: print(f"lang_dest:{lang_dest} in_text:{in_text}")
